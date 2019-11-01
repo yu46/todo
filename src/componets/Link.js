@@ -1,20 +1,52 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
 
 import { setVisibilityFilter } from '../actions'
 
-let Link = ({ active, children, setFilter }) => (
-  <button
-    style={{
-      cursor: 'pointer',
-      marginLeft: '4px'
-    }}
-    disabled={active}
-    onClick={() => setFilter()}
-  >
-    {children}
-  </button>
-)
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(0.5),
+  }
+}))
+
+
+
+let Link = ({ active, children, setFilter }) => {
+  const classes = useStyles()
+
+  return (
+    <Button
+      style={{
+        marginLeft: '5px'
+      }}
+      color="primary"
+      variant='outlined'
+      className={classes.button}
+      disabled={active}
+      onClick={() => setFilter()}
+    >
+      {children}
+    </Button>
+  )
+}
+
+
+// let Link = ({ active, children, setFilter }) => (
+//   <Button
+//     style={{
+//       marginLeft: '5px'
+//     }}
+//     color="primary"
+//     variant='outlined'
+//     // className={classes.button}
+//     disabled={active}
+//     onClick={() => setFilter()}
+//   >
+//     {children}
+//   </Button>
+// )
 
 const mapStateToProps = (state, ownProps) => {
   // visibilityFilterはどれか一つで現在表示中のもの以外をactiveにする

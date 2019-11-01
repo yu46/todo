@@ -1,52 +1,18 @@
-import React, { Component } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
 import { connect } from 'react-redux'
+import CheckBox from '@material-ui/core/CheckBox'
+
 
 import { completeTodo } from '../actions'
 
 
-class CheckBox extends Component {
 
-  render() {
 
-    const { dispatch, todo } = this.props
-    let icon
-    if (todo.completed) {
-      icon = (
-        <FontAwesomeIcon
-          onClick={() =>
-            dispatch(completeTodo(todo.id))
-          }
-          icon={['far', 'check-square']}
-          style={{
-            marginRight: '10px',
-            color: 'teal',
-            cursor: 'pointer',
-          }}
-        />
-      )
-    } else {
-      icon = (
-        <FontAwesomeIcon
-          onClick={() =>
-            dispatch(completeTodo(todo.id))
-          }
-          icon={['far', 'square']}
-          style={{
-            marginRight: '10px',
-            color: 'teal',
-            cursor: 'pointer',
-          }}
-        />
-      )
-    }
+let MaterialCheckBox = ({ dispatch, todo }) => (
+  <CheckBox
+    color="primary"
+    onClick={() => dispatch(completeTodo(todo.id))}
+  />
+)
 
-    return (
-      <React.Fragment>
-        {icon}
-      </React.Fragment>
-    )
-  }
-}
-
-export default CheckBox = connect()(CheckBox)
+export default MaterialCheckBox = connect()(MaterialCheckBox)

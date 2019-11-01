@@ -1,5 +1,14 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import IconButton from '@material-ui/core/IconButton';
+
+// import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@material-ui/core/ListItem';
+import Divider from '@material-ui/core/Divider';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
+// import Icon from '@material-ui/core/Icon'
+// import CheckBox from '@material-ui/core/CheckBox'
 // import classnames from 'classnames'
 
 import CheckBox from './CheckBox'
@@ -42,47 +51,64 @@ export default class TodoItem extends Component {
           text={todo.text}
           editing={this.state.editing}
           onSave={(text) => this.handleSave(todo.id, text)}
+
         />
       )
     } else {
       element = (
         <div>
+
           {/* チェックボックス */}
           <CheckBox
+            color="primary"
             todo={todo}
           />
-          <label onDoubleClick={this.handleEditOrDoubleClick} >
+          <label
+            onDoubleClick={this.handleEditOrDoubleClick} >
             {todo.text}
           </label>
 
-          {/* エディトアイコン */}
-          <FontAwesomeIcon
-            onClick={this.handleEditOrDoubleClick}
-            icon={['fas', 'pen']}
-            style={{
-              marginLeft: '90px',
-              color: 'teal',
-              opacity: 0.9,
-              cursor: 'pointer'
-            }}
-          />
+          <ListItemSecondaryAction >
+            {/* エディトアイコン */}
+            <IconButton
+              color="primary"
+            >
+              <FontAwesomeIcon
+                onClick={this.handleEditOrDoubleClick}
+                icon={['fas', 'pen']}
+              // style={{
+              //   color: 'teal',
+              //   opacity: 0.9,
+              // }}
+              />
+            </IconButton>
 
-          {/* 星アイコン */}
-          <IconStar
-            todo={todo}
-          />
+            {/* 星アイコン */}
+            <IconButton
+              color="primary"
+            >
+              <IconStar
+                todo={todo}
+              />
+            </IconButton>
+            {/* 削除アイコン */}
 
-          {/* 削除アイコン */}
-          <FontAwesomeIcon
-            onClick={() => deleteTodo(todo.id)}
-            icon={['fas', 'trash-alt']}
-            style={{
-              marginLeft: '15px',
-              color: 'teal',
-              opacity: 0.9,
-              cursor: 'pointer'
-            }}
-          />
+            <IconButton
+              // <ListItemIcon
+
+              aria-label="delete"
+              color="primary"
+              onClick={() => deleteTodo(todo.id)}
+            >
+              <FontAwesomeIcon
+                icon={['fas', 'trash-alt']}
+              />
+            </IconButton>
+          </ListItemSecondaryAction>
+          {/* </ListItemIcon> */}
+
+
+
         </div >
       )
     }
@@ -93,13 +119,25 @@ export default class TodoItem extends Component {
       //     editing: this.state.editing
       //   })
       // }>
-      <li
-        style={{
-          textDecoration: todo.completed ? 'line-through' : 'none'
-        }}
-      >
-        {element}
-      </li >
+      // <li
+      //   style={{
+      //     textDecoration: todo.completed ? 'line-through' : 'none'
+      //   }}
+      // >
+      <React.Fragment>
+        <ListItem>
+          <ListItemText
+            style={{
+              textDecoration: todo.completed ? 'line-through' : 'none'
+            }}
+          // primary={element}
+          >
+            {element}
+          </ListItemText>
+        </ListItem>
+        <Divider />
+      </React.Fragment>
+      // </li >
     )
   }
 }

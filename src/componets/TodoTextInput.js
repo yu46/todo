@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-// import classnames from 'classnames'
+
+import OutlinedInput from '@material-ui/core/OutlinedInput'
+import InputAdornment from '@material-ui/core/InputAdornment'
+
 
 export default class TodoTextInput extends Component {
 
@@ -38,14 +41,20 @@ export default class TodoTextInput extends Component {
       //     edit: this.props.editing
       //   })
       // }
-      <input
-        type="text"
+      <OutlinedInput
+        fullWidth
+        startAdornment={<InputAdornment position="start">+</InputAdornment>}
+        labelWidth={0}
+        // type="text"
         autoFocus={true}
         placeholder={this.props.placeholder}
         value={this.state.text}
         onChange={this.handleChange}
         onKeyDown={this.handleSubmit}
         onBlur={this.handleBlur}
+        style={{
+          fontSize: '20px'
+        }}
       />
     )
   }

@@ -18,9 +18,9 @@ class IconStar extends Component {
           }
           icon={['fas', 'star']}
           style={{
-            marginLeft: '15px',
-            color: 'teal',
-            cursor: 'pointer'
+            // marginLeft: '15px',
+            // color: 'teal',
+            // cursor: 'pointer'
             // opacity: 0.8
           }}
         />
@@ -32,11 +32,12 @@ class IconStar extends Component {
             dispatch(importantTodo(todo.id))
           }}
           icon={['far', 'star']}
+
           style={{
-            marginLeft: '15px',
-            color: 'teal',
-            cursor: 'pointer',
-            opacity: 0.5
+            // marginLeft: '15px',
+            // color: 'teal',
+            // cursor: 'pointer',
+            // opacity: 0.5
           }}
         />
       )
