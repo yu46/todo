@@ -25,6 +25,8 @@ const App = () => {
     palette: {
       primary: {
         main: '#546e7a',
+        Dark: '#29434e',
+        light: '#819ca9'
       }
     }
   })
@@ -33,7 +35,8 @@ const App = () => {
     <div className="container">
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Typography component="div" style={{ backgroundColor: '#fafafa', height: '100vh' }} >
+        <Typography component="div"
+          style={{ backgroundColor: '#fafafa', height: '100vh' }} >
 
           <Container maxWidth="sm" >
             <Header />

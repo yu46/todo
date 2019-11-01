@@ -2,30 +2,32 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
+import Tab from '@material-ui/core/Tab'
+
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 
 import { setVisibilityFilter } from '../actions'
 
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(0.5),
-  }
-}))
-
+// const useStyles = makeStyles(theme => ({
+//   button: {
+//     margin: theme.spacing(0.5),
+//   }
+// }))
 
 
 let Link = ({ active, children, setFilter }) => {
-  const classes = useStyles()
+  // const classes = useStyles()
 
   return (
     <Button
-      style={{
-        marginLeft: '5px'
-      }}
+
       color="primary"
       variant='outlined'
-      className={classes.button}
+      // className={classes.button}
       disabled={active}
-      onClick={() => setFilter()}
+      onClick={() => {
+        setFilter()
+      }}
     >
       {children}
     </Button>
