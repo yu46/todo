@@ -10,10 +10,10 @@ import Typography from "@material-ui/core/Typography";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 
-import TodoList from "./TodoList2";
-import NewTodoList from "./NewTodoList";
+// import TodoList from "./TodoList2";
+// import NewTodoList from "./NewTodoList";
 import Footer from "./Footer";
-import Header from "./Header";
+// import Header from "./Header";
 import Main from "./Main";
 import Title from "./Title";
 
@@ -24,8 +24,9 @@ const App = () => {
     palette: {
       primary: {
         main: "#546e7a",
-        Dark: "#29434e",
-        light: "#819ca9"
+        dark: "#29434e",
+        light: "#819ca9",
+        contrastText: "#fafafa"
       }
     }
   });

@@ -39,12 +39,12 @@ const mapStateToProps = state => ({
   todos: getVisibleTodos(state.todos, state.visibilityFilter)
 });
 
+// const mapDispatchToProps = dispatch => ({
+//   deleteTodo: id => dispatch(TodoActions.deleteTodo(id))
+// });
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(TodoActions, dispatch)
 });
-// const mapDispatchToProps = dispatch => ({
-//   onDeleteButtonClick: (id) => dispatch(deleteTodo(id))
-// })
 
 export default TodoList = connect(
   mapStateToProps,

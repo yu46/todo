@@ -3,19 +3,19 @@ import {
   DELETE_TODO,
   EDIT_TODO,
   COMPLETE_TODO,
-  IMPORTANT_TODO,
-} from '../constants/ActionTypes'
+  IMPORTANT_TODO
+} from "../constants/ActionTypes";
 
 // import undoable from 'redux-undo'
 const initialState = [
   {
     id: 0,
-    text: 'hello world!',
+    text: "hello world!",
     completed: false,
-    important: false
+    important: false,
+    onDialog: true
   }
-]
-
+];
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
@@ -27,52 +27,46 @@ const todos = (state = initialState, action) => {
           text: action.text,
           completed: false,
           important: false,
+          onDialog: true
         }
-      ]
+      ];
 
     case DELETE_TODO:
-      return state.filter(todo =>
-        todo.id !== action.id
-      )
+      return state.filter(todo => todo.id !== action.id);
 
     case EDIT_TODO:
       return state.map(todo => {
         if (todo.id === action.id) {
-          return (
-            {
-              ...todo,
-              id: action.id,
-              text: action.text,
-            }
-          )
+          return {
+            ...todo,
+            id: action.id,
+            text: action.text
+          };
         } else {
-          return todo
+          return todo;
         }
-      }
-      )
+      });
 
     case COMPLETE_TODO:
       return state.map(todo =>
-        todo.id === action.id ?
-          { ...todo, completed: !todo.completed } : todo
-      )
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+      );
 
     case IMPORTANT_TODO:
       return state.map(todo =>
-        todo.id === action.id ?
-          { ...todo, important: !todo.important } : todo
-      )
+        todo.id === action.id ? { ...todo, important: !todo.important } : todo
+      );
 
-    case 'TOGGLE_TODO':
-      return state.map((todo) =>
+    case "TOGGLE_TODO":
+      return state.map(todo =>
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-      )
+      );
     default:
-      return state
+      return state;
   }
-}
+};
 
 // const undoableTodos = undoable(todos)
 
-export default todos
+export default todos;
 // export default undoableTodos

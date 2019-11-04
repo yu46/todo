@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import NewTodoList from "./NewTodoList";
 // material-Ui
-import Grid from "@material-ui/core/Grid";
+// import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
 import TodoTextInput from "./TodoTextInput";
