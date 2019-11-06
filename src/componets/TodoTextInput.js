@@ -10,7 +10,6 @@ export default class TodoTextInput extends Component {
 
   handleSubmit = e => {
     const text = e.target.value.trim();
-    console.log(text);
     // e.which ===13 はエンターキーを押したかどうかの判断
     if (e.which === 13) {
       this.props.onSave(text);

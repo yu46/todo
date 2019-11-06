@@ -6,7 +6,6 @@ import {
   IMPORTANT_TODO
 } from "../constants/ActionTypes";
 
-// import undoable from 'redux-undo'
 const initialState = [
   {
     id: 0,
@@ -66,7 +65,4 @@ const todos = (state = initialState, action) => {
   }
 };
 
-// const undoableTodos = undoable(todos)
-
 export default todos;
-// export default undoableTodos
