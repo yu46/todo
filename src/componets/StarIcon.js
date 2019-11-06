@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
-
-import { connect } from "react-redux";
 
 import { importantTodo } from "../actions";
 
@@ -18,17 +18,7 @@ class IconStar extends Component {
             onClick={() => dispatch(importantTodo(todo.id))}
             color="primary"
           >
-            <FontAwesomeIcon
-              icon={["fas", "star"]}
-              style={
-                {
-                  // marginLeft: '15px',
-                  // color: 'teal',
-                  // cursor: 'pointer'
-                  // opacity: 0.8
-                }
-              }
-            />
+            <FontAwesomeIcon icon={["fas", "star"]} />
           </IconButton>
         </Tooltip>
       );
@@ -46,7 +36,6 @@ class IconStar extends Component {
         </Tooltip>
       );
     }
-
     return <React.Fragment>{icon}</React.Fragment>;
   }
 }

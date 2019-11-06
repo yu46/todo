@@ -1,51 +1,41 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import OutlinedInput from '@material-ui/core/OutlinedInput'
-import InputAdornment from '@material-ui/core/InputAdornment'
-
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 export default class TodoTextInput extends Component {
-
   state = {
-    text: this.props.text || ''
-  }
-
+    text: this.props.text || ""
+  };
 
   handleSubmit = e => {
-    const text = e.target.value.trim()
-    console.log(text)
-    // e.which ===13 はエンターキーを押したら。e.key === 'Enter'
+    const text = e.target.value.trim();
+    console.log(text);
+    // e.which ===13 はエンターキーを押したかどうかの判断
     if (e.which === 13) {
-      this.props.onSave(text)
+      this.props.onSave(text);
       if (this.props.newTodo) {
-        this.setState({ text: '' })
+        this.setState({ text: "" });
       }
     }
-  }
+  };
 
   handleChange = e => {
-    this.setState({ text: e.target.value })
-  }
+    this.setState({ text: e.target.value });
+  };
 
   handleBlur = e => {
     if (!this.props.newTodo) {
-      this.props.onSave(e.target.value)
+      this.props.onSave(e.target.value);
     }
-  }
-
+  };
 
   render() {
     return (
-      // <input className={
-      //   classnames({
-      //     edit: this.props.editing
-      //   })
-      // }
       <OutlinedInput
         fullWidth
         startAdornment={<InputAdornment position="start">+</InputAdornment>}
         labelWidth={0}
-        // type="text"
         autoFocus={true}
         placeholder={this.props.placeholder}
         value={this.state.text}
@@ -53,11 +43,9 @@ export default class TodoTextInput extends Component {
         onKeyDown={this.handleSubmit}
         onBlur={this.handleBlur}
         style={{
-          fontSize: '20px'
+          fontSize: "20px"
         }}
       />
-    )
+    );
   }
-
-
 }

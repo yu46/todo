@@ -1,13 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import List from "@material-ui/core/List";
 
 import * as TodoActions from "../actions";
 import { VisibilityFilters } from "../actions";
 import TodoItem from "./TodoItem";
-import { bindActionCreators } from "redux";
-// import { deleteTodo, editTodo } from '../actions'
 
 let TodoList = ({ todos, actions }) => (
   <List disablePadding={true}>
@@ -39,9 +38,6 @@ const mapStateToProps = state => ({
   todos: getVisibleTodos(state.todos, state.visibilityFilter)
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   deleteTodo: id => dispatch(TodoActions.deleteTodo(id))
-// });
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(TodoActions, dispatch)
 });

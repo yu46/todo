@@ -13,19 +13,13 @@ let Link = ({ active, children, setFilter }) => {
         <Button
           color="primary"
           variant="outlined"
-          // className={classes.button}
           disabled={active}
           onClick={() => {
             setFilter();
           }}
           style={{
             backgroundColor: "#fafafa"
-            // color: "#fafafa"
           }}
-          //   primary: {
-          //     main: "#546e7a",
-          // dark: "#29434e",
-          //   light: "#819ca9"
         >
           {children}
         </Button>
@@ -35,11 +29,6 @@ let Link = ({ active, children, setFilter }) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  // visibilityFilterはどれか一つで現在表示中のもの以外をactiveにする
-  // console.log("ownProps");
-  // console.log(ownProps);
-  // console.log("state");
-  // console.log(state.visibilityFilter);
   return {
     active: ownProps.filter === state.visibilityFilter
   };

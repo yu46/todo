@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IconButton from "@material-ui/core/IconButton";
-
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
@@ -33,8 +33,6 @@ export default class TodoItem extends Component {
 
   render() {
     const { todo } = this.props;
-    // const { todo, deleteTodo } = this.props;
-
     let element;
     if (this.state.editing && !todo.completed) {
       element = (
@@ -48,10 +46,9 @@ export default class TodoItem extends Component {
       element = (
         <React.Fragment>
           {/* チェックボックス */}
-
           <CheckBox color="primary" todo={todo} />
 
-          {/* テキスト */}
+          {/* TODOテキスト */}
           <label onDoubleClick={this.handleEditOrDoubleClick}>
             {todo.text}
           </label>
@@ -61,7 +58,6 @@ export default class TodoItem extends Component {
             <Tooltip
               title={todo.completed ? "編集できません" : "編集"}
               style={{
-                // visibility: todo.completed ? "hidden" : "visible",
                 disabled: todo.completed || false
               }}
             >
@@ -74,23 +70,13 @@ export default class TodoItem extends Component {
             </Tooltip>
             {/* 星アイコン */}
             <StarIcon todo={todo} />
+
             {/* 削除アイコン */}
-            {/* <Tooltip title="削除">
-              <IconButton
-                aria-label="delete"
-                color="primary"
-                onClick={() => deleteTodo(todo.id)}
-              >
-                <FontAwesomeIcon icon={["fas", "trash-alt"]} />
-              </IconButton>
-            </Tooltip>
-            {/* 削除アイコンテスト */}
             <DeleteIcon todo={todo} />
           </ListItemSecondaryAction>
         </React.Fragment>
       );
     }
-
     return (
       <React.Fragment>
         <ListItem>
@@ -98,7 +84,6 @@ export default class TodoItem extends Component {
             style={{
               textDecoration: todo.completed ? "line-through" : "none"
             }}
-            // primary={element}
           >
             {element}
           </ListItemText>

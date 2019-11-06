@@ -1,11 +1,10 @@
 import React from "react";
-// import Grid from "@material-ui/core/Grid";
 
 const Title = () => (
   <h1
     style={{
       fontSize: "50px",
-      color: "#3a4d55", //#3a4d55 '#546e7a'
+      color: "#3a4d55",
       textAlign: "center"
     }}
   >

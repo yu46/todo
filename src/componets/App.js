@@ -10,10 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 
-// import TodoList from "./TodoList2";
-// import NewTodoList from "./NewTodoList";
 import Footer from "./Footer";
-// import Header from "./Header";
 import Main from "./Main";
 import Title from "./Title";
 
@@ -41,13 +38,7 @@ const App = () => {
         >
           <Container maxWidth="sm">
             <Title />
-            {/* <Paper> */}
-            {/* <Header /> */}
             <Main />
-            {/* <AddTodo /> */}
-            {/* <TodoList /> */}
-            {/* <NewTodoList /> */}
-            {/* </Paper> */}
             <Footer />
           </Container>
         </Typography>
