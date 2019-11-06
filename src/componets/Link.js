@@ -2,13 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 
 import Button from "@material-ui/core/Button";
-import Tooltip from "@material-ui/core/Tooltip";
 
 import { setVisibilityFilter } from "../actions";
 
 let Link = ({ active, children, setFilter }) => {
   return (
-    <Tooltip title={!active ? "" : "実行できません"}>
+    <React.Fragment>
       <span>
         <Button
           color="primary"
@@ -24,7 +23,7 @@ let Link = ({ active, children, setFilter }) => {
           {children}
         </Button>
       </span>
-    </Tooltip>
+    </React.Fragment>
   );
 };
 
