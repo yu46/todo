@@ -6,7 +6,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 import { completeTodo } from "../actions";
 
-let MaterialCheckBox = ({ dispatch, todo }) => {
+const MuiCheckBox = ({ dispatch, todo }) => {
   if (todo.completed) {
     return (
       <Tooltip title="完了を取り消す">
@@ -28,4 +28,4 @@ let MaterialCheckBox = ({ dispatch, todo }) => {
   }
 };
 
-export default MaterialCheckBox = connect()(MaterialCheckBox);
+export default connect()(MuiCheckBox);

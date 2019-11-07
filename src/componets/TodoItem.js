@@ -8,7 +8,7 @@ import Divider from "@material-ui/core/Divider";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import CheckBox from "./CheckBox";
+import MyCheckBox from "./CheckBox";
 import StarIcon from "./StarIcon";
 import TodoTextInput from "./TodoTextInput";
 import DeleteIcon from "./DeleteIcon";
@@ -46,7 +46,7 @@ export default class TodoItem extends Component {
       element = (
         <React.Fragment>
           {/* チェックボックス */}
-          <CheckBox color="primary" todo={todo} />
+          <MyCheckBox color="primary" todo={todo} />
 
           {/* TODOテキスト */}
           <label onDoubleClick={this.handleEditOrDoubleClick}>
