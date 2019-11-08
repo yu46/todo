@@ -7,15 +7,18 @@ import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Tooltip from "@material-ui/core/Tooltip";
+import Hidden from "@material-ui/core/Hidden";
 
 import MyCheckBox from "./CheckBox";
 import StarIcon from "./StarIcon";
 import TodoTextInput from "./TodoTextInput";
 import DeleteIcon from "./DeleteIcon";
+import SimpleMenu from "./Menu";
 
 export default class TodoItem extends Component {
   state = {
-    editing: false
+    editing: false,
+    anchorEl: null
   };
 
   handleEditOrDoubleClick = () => {
@@ -30,6 +33,16 @@ export default class TodoItem extends Component {
     }
     this.setState({ editing: false });
   };
+
+  // menuEvent
+  // handleClickMenu = e => {
+  //   console.log(e.cuurentTarget);
+  //   this.setState({ anchorEl: e.cuurentTarget });
+  // };
+
+  // handleCloseMenu = () => {
+  //   this.setState({ anchorEl: null });
+  // };
 
   render() {
     const { todo } = this.props;
@@ -54,25 +67,35 @@ export default class TodoItem extends Component {
           </label>
 
           <ListItemSecondaryAction>
-            {/* エディトアイコン */}
-            <Tooltip
-              title={todo.completed ? "編集できません" : "編集"}
-              style={{
-                disabled: todo.completed || false
-              }}
-            >
-              <IconButton
-                onClick={this.handleEditOrDoubleClick}
-                color="primary"
-              >
-                <FontAwesomeIcon icon={["fas", "pen"]} />
-              </IconButton>
-            </Tooltip>
-            {/* 星アイコン */}
-            <StarIcon todo={todo} />
+            <Hidden smUp>
+              <SimpleMenu
+                onClickEdit={this.handleEditOrDoubleClick}
+                todo={todo}
+              />
+            </Hidden>
 
-            {/* 削除アイコン */}
-            <DeleteIcon todo={todo} />
+            {/* スマホ用 アイコンを隠す */}
+            <Hidden xsDown implementation="css">
+              {/* エディトアイコン */}
+              <Tooltip
+                title={todo.completed ? "編集できません" : "編集"}
+                style={{
+                  disabled: todo.completed || false
+                }}
+              >
+                <IconButton
+                  onClick={this.handleEditOrDoubleClick}
+                  color="primary"
+                >
+                  <FontAwesomeIcon icon={["fas", "pen"]} />
+                </IconButton>
+              </Tooltip>
+              {/* 星アイコン */}
+              <StarIcon todo={todo} />
+
+              {/* 削除アイコン */}
+              <DeleteIcon todo={todo} />
+            </Hidden>
           </ListItemSecondaryAction>
         </React.Fragment>
       );
